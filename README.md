@@ -9,6 +9,7 @@ Create anaconda environment called **gui_det**.
 ```bash
 conda create -n gui_det python==3.9
 conda activate gui_det
+conda install jupyter
 ```
 
 1. Create a folder named `src/Dataset`.
