@@ -37,7 +37,7 @@
    (5) Create `train`, `validation`, and `test` folders and split the dataset accordingly.<br>
    (6) Check if the variable **TRAIN = True**
    (7) Finally, Train Yolov5 for GUI detection. (Related paper was 416 with batches of 16)<br>
-      Replace yolo5.yaml to `yolov5` and rename it to dataset.yaml.
+      Replace yolo5.yaml to `yolov5` and rename it to dataset.yaml and change the src path.
    ```bash
    python train.py --data dataset.yaml --weights yolov5s.pt --img 416 --epochs {EPOCHS} --batch-size 16 --name {RES_DIR}
    ```
