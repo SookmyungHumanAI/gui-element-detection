@@ -5,21 +5,22 @@
 [VINS Dataset](https://github.com/sbunian/VINS)
 
 ## About Datasets(for yolov5 and yolov8)
-Create anaconda environment called **gui_det**.
+1. Create anaconda environment called **gui_det**.
 ```bash
+git clone https://github.com/SookmyungHumanAI/gui-element-detection.git
 conda create -n gui_det python==3.9
 conda activate gui_det
 conda install jupyter
 ```
 
-1. Create a folder named `src/Dataset`.
-2. Download the **VINS_Dataset** from the link above into the `src/Dataset` directory.
-3. In the `src/constants.py` file, set the `VINS_DATASET_PATH` variable to the absolute path of `src/Dataset`.
-4. Run the `src/data_cleaning.ipynb` notebook:<br>
+2. Create a folder named `src/Dataset`.
+3. Download the **VINS_Dataset** from the link above into the `src/Dataset` directory.
+4. In the `src/constants.py` file, set the `VINS_DATASET_PATH` variable to the absolute path of `src/Dataset`.
+5. Run the `src/data_cleaning.ipynb` notebook:<br>
    (1) Merge the four datasets (`Android`, `Rico`, `iPhone`, `Uplabs`) inside the `src/Dataset/Merged` folder, excluding the `Wireframes` dataset.<br>
    (2) Perform data preprocessing to generate the required `.txt` files for YOLO, and save them in the `yolo5_format` folder.<br>
    (3) Combine images and annotations into a folder named `yolo5_full`.<br>
-5. Run the `src/yolo/yolov5.ipynb` notebook:<br>
+6. Run the `src/yolo/yolov5.ipynb` notebook:<br>
    (1) Add the absolute path of the `src` folder to `sys.path` using `sys.path.insert(1, "absolute path to src")`.<br>
    (2) `git clone https://github.com/ultralytics/yolov5`<br>
    (3) `pip install -r requirements.txt`<br>
@@ -35,11 +36,49 @@ conda install jupyter
       ```
    (5) Create `train`, `validation`, and `test` folders and split the dataset accordingly.<br>
    (6) Check if the variable **TRAIN = True**
-   (7) Finally, Train Yolov5 for GUI detection. (Related paper was 416 with batches of 16)
+   (7) Finally, Train Yolov5 for GUI detection. (Related paper was 416 with batches of 16)<br>
+      Replace yolo5.yaml to `yolov5` and rename it to dataset.yaml.
    ```bash
-      python train.py --data dataset.yaml --weights yolov5s.pt --img 416 --epochs {EPOCHS} --batch-size 16 --name {RES_DIR}
+   python train.py --data dataset.yaml --weights yolov5s.pt --img 416 --epochs {EPOCHS} --batch-size 16 --name {RES_DIR}
    ```
- 
+
+## Folder Structure
+Below is the folder structure of the project.
+```bash
+src/
+├── Dataset/
+│   ├── Android/
+│   ├── iphone/
+│   ├── Merged/
+│   │   ├── annotations/
+│   │   ├── dataset/
+│   │   ├── images/
+│   │   ├── yolo5_format/
+│   │   └── yolo5_full/
+│   ├── Rico/
+│   ├── uplabs/
+│   └── Wireframes/
+├── util/
+└── yolo/
+    ├── datasets/
+    ├── yolo*/ # YOLO Repositories(if needed)
+    └── yolo*.ipynb
+```
+Focusing on `src/Dataset/Merged`
+```bash
+Merged/
+├── ...
+├── dataset/
+│   ├── images/
+│   │   ├── test/
+│   │   ├── train/
+│   │   └── validation/
+│   └── labels/
+│       ├── test/
+│       ├── train/
+│       └── validation/
+├── ...
+```
 
 ## Related papers' repositories
 
