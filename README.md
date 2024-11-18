@@ -5,6 +5,12 @@
 [VINS Dataset](https://github.com/sbunian/VINS)
 
 ## About Datasets(for yolov5 and yolov8)
+Create anaconda environment called **gui_det**.
+```bash
+conda create -n gui_det python==3.9
+conda activate gui_det
+```
+
 1. Create a folder named `src/Dataset`.
 2. Download the **VINS_Dataset** from the link above into the `src/Dataset` directory.
 3. In the `src/constants.py` file, set the `VINS_DATASET_PATH` variable to the absolute path of `src/Dataset`.
@@ -14,7 +20,24 @@
    (3) Combine images and annotations into a folder named `yolo5_full`.<br>
 5. Run the `src/yolo/yolov5.ipynb` notebook:<br>
    (1) Add the absolute path of the `src` folder to `sys.path` using `sys.path.insert(1, "absolute path to src")`.<br>
-   (2) Create `train`, `validation`, and `test` folders and split the dataset accordingly.<br>
+   (2) `git clone https://github.com/ultralytics/yolov5`<br>
+   (3) `pip install -r requirements.txt`<br>
+   (4) Check if CUDA is available:<br>
+      ```bash
+      python -c "import torch; print(torch.cuda.is_available())"
+      >>> True
+      ```
+      else:
+      ```bash
+      pip uninstall torch torchvision
+      conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+      ```
+   (5) Create `train`, `validation`, and `test` folders and split the dataset accordingly.<br>
+   (6) Check if the variable **TRAIN = True**
+   (7) Finally, Train Yolov5 for GUI detection. (Related paper was 416 with batches of 16)
+   ```bash
+      python train.py --data dataset.yaml --weights yolov5s.pt --img 416 --epochs {EPOCHS} --batch-size 16 --name {RES_DIR}
+   ```
  
 
 ## Related papers' repositories
