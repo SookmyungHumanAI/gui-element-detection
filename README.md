@@ -4,14 +4,14 @@
 
 [VINS Dataset](https://github.com/sbunian/VINS)
 
-## About Datasets(for yolov5 and yolov8)
+## Dataset Pre-Processing and Training
 1. Create anaconda environment called **gui_det**.
-```bash
-git clone https://github.com/SookmyungHumanAI/gui-element-detection.git
-conda create -n gui_det python==3.9
-conda activate gui_det
-conda install jupyter
-```
+   ```bash
+   git clone https://github.com/SookmyungHumanAI/gui-element-detection.git
+   conda create -n gui_det python==3.9
+   conda activate gui_det
+   conda install jupyter
+   ```
 
 2. Create a folder named `src/Dataset`.
 3. Download the **VINS_Dataset** from the link above into the `src/Dataset` directory.
