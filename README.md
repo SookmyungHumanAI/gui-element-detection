@@ -4,6 +4,19 @@
 
 [VINS Dataset](https://github.com/sbunian/VINS)
 
+## About Datasets(for yolov5 and yolov8)
+1. Create a folder named `src/Dataset`.
+2. Download the **VINS_Dataset** from the link above into the `src/Dataset` directory.
+3. In the `src/constants.py` file, set the `VINS_DATASET_PATH` variable to the absolute path of `src/Dataset`.
+4. Run the `src/data_cleaning.ipynb` notebook:<br>
+   (1) Merge the four datasets (`Android`, `Rico`, `iPhone`, `Uplabs`) inside the `src/Dataset/Merged` folder, excluding the `Wireframes` dataset.<br>
+   (2) Perform data preprocessing to generate the required `.txt` files for YOLO, and save them in the `yolo5_format` folder.<br>
+   (3) Combine images and annotations into a folder named `yolo5_full`.<br>
+5. Run the `src/yolo/yolov5.ipynb` notebook:<br>
+   (1) Add the absolute path of the `src` folder to `sys.path` using `sys.path.insert(1, "absolute path to src")`.<br>
+   (2) Create `train`, `validation`, and `test` folders and split the dataset accordingly.<br>
+ 
+
 ## Related papers' repositories
 
 - [74 - Object Detection for Graphical User Interface: Old Fashioned or Deep Learning or a Combination?](https://github.com/chenjshnn/Object-Detection-for-Graphical-User-Interface)
