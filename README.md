@@ -45,6 +45,7 @@
 ## Folder Structure
 Below is the folder structure of the project.
 ```bash
+ckpt/
 src/
 ├── Dataset/
 │   ├── Android/
