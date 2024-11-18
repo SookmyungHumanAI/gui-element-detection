@@ -3,7 +3,7 @@ src/yolo/yolo*
 src/yolo/YOLO*
 
 # Dataset(images, annotations)
-Dataset/*
+src/Dataset/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,intellij+all,intellij+iml,intellij,pycharm,pycharm+iml,pycharm+all,java,c++,django,flask,netbeans,visualstudiocode,visualstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks,intellij+all,intellij+iml,intellij,pycharm,pycharm+iml,pycharm+all,java,c++,django,flask,netbeans,visualstudiocode,visualstudio
