@@ -35,13 +35,18 @@
       conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
       ```
    (5) Create `train`, `validation`, and `test` folders and split the dataset accordingly.<br>
-   (6) Check if the variable **TRAIN = True**
+   (6) Check if the variable `TRAIN = True`<br>
    (7) Finally, Train Yolov5 for GUI detection. (Related paper was 416 with batches of 16)<br>
       Replace yolo5.yaml to `yolov5` and rename it to dataset.yaml and change the src path.
    ```bash
    python train.py --data dataset.yaml --weights yolov5s.pt --img 416 --epochs {EPOCHS} --batch-size 16 --name {RES_DIR}
    ```
-
+## YOLOv5 modification
+https://github.com/ultralytics/yolov5/pull/13244 <br>
+`src/yolo/yolov5/train.py` and `src/yolo/yolov5/utils/autobatch.py`
+```bash
+with torch.cuda.amp.autocast(amp) -> with torch.amp.autocast("cuda")
+```
 ## Folder Structure
 Below is the folder structure of the project.
 ```bash
